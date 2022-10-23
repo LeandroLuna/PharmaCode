@@ -20,7 +20,7 @@ class DbManager():
  
     # Insere um dado.
     def inserirDado(self, farmaco: Farmaco):
-        query = "INSERT INTO medicamentos (nome, preco, quantidade) VALUES('{}', {}, {});".format(farmaco.getNome(), farmaco.getPreco(), farmaco.getQuantidade())
+        query = "INSERT INTO medicamentos (nome, preco, quantidade) VALUES('{}', {}, {});".format(farmaco.nome, farmaco.preco, farmaco.quantidade)
         self.conexao.execute(query)
         self.conexao.commit()
         
@@ -30,6 +30,7 @@ class DbManager():
             for dado in dados:
                 self.conexao.execute(dado)
                 self.conexao.commit()
+            print("Injeção realizada com sucesso!")
         except:
             print('Houve um problema ao inserir os novos dados de teste..')
 

@@ -15,4 +15,4 @@ Decorator
 
 Facade
 
-Factory
+Mediator (controller)

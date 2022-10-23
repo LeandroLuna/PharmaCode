@@ -1,24 +1,30 @@
 class Farmaco():
     "Classe com atributos e métodos do fármaco"
 
-    def setNome(self, nome):
-        self.nome = nome
+    @property
+    def nome(self):
+        return self.__nome
     
-    def getNome(self):
-        return self.nome
+    @nome.setter
+    def nome(self, nome):
+        self.__nome = nome
+    
+    @property
+    def preco(self):
+        return self.__preco
 
-    def setPreco(self, preco):
-        self.preco = preco
+    @preco.setter
+    def preco(self, preco):
+        self.__preco = preco
     
-    def getPreco(self):
-        return self.preco
-
-    def setQuantidade(self, quantidade):
-        self.quantidade = quantidade
+    @property
+    def quantidade(self):
+        return self.__quantidade
     
-    def getQuantidade(self):
-        return self.quantidade
-    
+    @quantidade.setter
+    def quantidade(self, quantidade):
+        self.__quantidade = quantidade
+        
     def getFarmaco(self):
-        print(f'Nome: {self.nome}\nPreço: {self.preco}\nQuantidade: {self.quantidade}\n')
+        print(f'Nome: {self.__nome}\nPreço: {self.__preco}\nQuantidade: {self.__quantidade}\n')
 
