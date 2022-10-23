@@ -1,10 +1,5 @@
-class Farmaco:
+class Farmaco():
     "Classe com atributos e métodos do fármaco"
-    def __init__(self, id, nome, preco, quantidade):
-        self.id = id
-        self.nome = nome
-        self.preco = preco
-        self.quantidade = quantidade
 
     def setNome(self, nome):
         self.nome = nome
@@ -16,7 +11,7 @@ class Farmaco:
         self.preco = preco
     
     def getPreco(self):
-        return self.nome
+        return self.preco
 
     def setQuantidade(self, quantidade):
         self.quantidade = quantidade
@@ -24,3 +19,6 @@ class Farmaco:
     def getQuantidade(self):
         return self.quantidade
     
+    def getFarmaco(self):
+        print(f'Nome: {self.nome}\nPreço: {self.preco}\nQuantidade: {self.quantidade}\n')
+
