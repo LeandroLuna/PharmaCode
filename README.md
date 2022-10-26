@@ -1,6 +1,6 @@
 # PharmaCode
 
-Nome: Leandro de Jesus Luna | RM: 86492
+Nome: Leandro de Jesus Luna | RM: 86492 (3ECA)
 
 Nome: Felipe Gabriel Correa da Silva | RM: 85487
 
