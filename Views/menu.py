@@ -11,9 +11,9 @@ class Menu():
         self.opt = 0
 
     def iniciar_aplicacao(self):
-        while (self.opt != 8):
+        while (self.opt != 7):
             print('-'*50)
-            print("[0] Criar tabela\n[1] Adicionar fármaco\n[2] Consultar estoque\n[3] Consultar informações de um fármaco\n[4] Editar fármaco\n[5] Excluir fármaco\n[7] Gerar mock\n[8] Finalizar programa")
+            print("[0] Criar tabela\n[1] Adicionar fármaco\n[2] Consultar estoque\n[3] Consultar informações de um fármaco\n[4] Editar fármaco\n[5] Excluir fármaco\n[6] Gerar mock\n[7] Finalizar programa")
             print('-'*50)
             self.opt = int(input('Qual a sua opção? '))
             opc = 0  # Valor inicial
@@ -131,10 +131,10 @@ class Menu():
                 else:
                     print("Opção inválida.. Retornando ao menu inicial.")
 
-            elif (self.opt == 7):
+            elif (self.opt == 6):
                 self.manager.gerarMock(dados_medicamentos)
 
-            elif (self.opt == 8):
+            elif (self.opt == 7):
                 print('Finalizando.. Até mais! :)')
 
             else:

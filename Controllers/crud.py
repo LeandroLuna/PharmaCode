@@ -18,12 +18,6 @@ class DbManager():
         except:
             print('Já existe uma tabela criada.')
  
-    # Insere um dado.
-    def inserirDado(self, farmaco: Farmaco):
-        query = "INSERT INTO medicamentos (nome, preco, quantidade) VALUES('{}', {}, {});".format(farmaco.nome, farmaco.preco, farmaco.quantidade)
-        self.conexao.execute(query)
-        self.conexao.commit()
-        
     # Injeta dados mockados.
     def gerarMock(self, dados):
         try:
@@ -33,7 +27,14 @@ class DbManager():
             print("Injeção realizada com sucesso!")
         except:
             print('Houve um problema ao inserir os novos dados de teste..')
+            
 
+    # Insere um dado.
+    def inserirDado(self, farmaco: Farmaco):
+        query = "INSERT INTO medicamentos (nome, preco, quantidade) VALUES('{}', {}, {});".format(farmaco.nome, farmaco.preco, farmaco.quantidade)
+        self.conexao.execute(query)
+        self.conexao.commit()
+        
     # Recupera dados especificos.
     def buscarDados(self, valor, tipo_pesquisa):
         if(tipo_pesquisa == "nome"):
@@ -57,7 +58,6 @@ class DbManager():
     def atualizarDados(self, valorIdentificacao, tipo_pesquisa, tipo_alteracao, novoValor):
         if(tipo_pesquisa == "nome" and tipo_alteracao == "nome"):
             query = "UPDATE medicamentos SET {} = '{}' WHERE {} = '{}';".format(tipo_alteracao, novoValor, tipo_pesquisa, valorIdentificacao)
-            print(query)
             try:
                 cursor = self.conexao.execute(query)
                 cursor = self.conexao.execute("SELECT * FROM medicamentos WHERE {} = '{}'".format(tipo_pesquisa, valorIdentificacao))
@@ -69,7 +69,6 @@ class DbManager():
                 print("Não foi possível concluir sua solicitação.")
         elif(tipo_pesquisa == "nome" and tipo_alteracao != "nome"):
             query = "UPDATE medicamentos SET {} = {} WHERE {} = '{}';".format(tipo_alteracao, novoValor, tipo_pesquisa, valorIdentificacao)
-            print(query)
             try:
                 cursor = self.conexao.execute(query)
                 cursor = self.conexao.execute("SELECT * FROM medicamentos WHERE {} = {}".format(tipo_pesquisa, valorIdentificacao))
@@ -81,7 +80,6 @@ class DbManager():
                 print("Não foi possível concluir sua solicitação.")
         elif(tipo_pesquisa != "nome" and tipo_alteracao == "nome"):
             query = "UPDATE medicamentos SET {} = '{}' WHERE {} = {};".format(tipo_alteracao, novoValor, tipo_pesquisa, valorIdentificacao)
-            print(query)
             try:
                 cursor = self.conexao.execute(query)
                 cursor = self.conexao.execute("SELECT * FROM medicamentos WHERE {} = {}".format(tipo_pesquisa, valorIdentificacao))
@@ -93,7 +91,6 @@ class DbManager():
                 print("Não foi possível concluir sua solicitação.")
         else:
             query = "UPDATE medicamentos SET {} = {} WHERE {} = {};".format(tipo_alteracao, novoValor, tipo_pesquisa, valorIdentificacao)
-            print(query)
             try:
                 cursor = self.conexao.execute(query)
                 cursor = self.conexao.execute("SELECT * FROM medicamentos WHERE {} = {}".format(tipo_pesquisa, valorIdentificacao))
